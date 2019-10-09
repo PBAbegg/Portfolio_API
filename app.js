@@ -1,13 +1,22 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+require('dotenv').config();
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//router middleware
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let profileRouter = require('./routes/profiles');
+let projectRouter = require('./routes/projects');
+let knowledgecatalogRouter = require('./routes/knowledgecatalog');
+let workexperienceRouter = require('./routes/workexperience');
+let skillsRouter = require('./routes/skills');
+let educationRouter = require('./routes/education');
+let referenceRouter = require('./routes/references');
 
-var app = express();
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,7 +28,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//authentication
+//authorization 
+
+//routing middleware
 app.use('/', indexRouter);
+app.use('/profiles', profileRouter);
+app.use('/projects', projectRouter);
+app.use('/references', referenceRouter);
+app.use('/knowledgecatalog', knowledgecatalogRouter);
+app.use('/workexperience', workexperienceRouter);
+app.use('/skills', skillsRouter);
+app.use('/education', educationRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
