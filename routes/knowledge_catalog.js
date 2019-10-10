@@ -1,10 +1,10 @@
 let express = require("express");
 let router = express.Router();
-const Skill = require('../models/skills')
+const KnowledgeCatalog = require('../models/knowledge_catalog')
 
 
 router.get("/", (req, res, next) =>{
-  Skill.find({}, function(err, data){
+  KnowledgeCatalog.find({}, function(err, data){
     if(err){
       return res.json({error:"code#", message: "you messed up"})
     }
@@ -13,7 +13,7 @@ router.get("/", (req, res, next) =>{
 });
 
 router.get("/:id", (req, res, next) =>{
-  Skill.find({}, function(err, data){
+  KnowledgeCatalog.find({}, function(err, data){
     if(err){
       return res.json({error:"code#", message: "you messed up"})
     }
@@ -22,7 +22,7 @@ router.get("/:id", (req, res, next) =>{
 });
 
 router.put("/:id", (req, res, next) =>{
-  Skill.find({}, function(err, data){
+  KnowledgeCatalog.find({}, function(err, data){
     if(err){
       return res.json({error:"code#", message: "you messed up"})
     }
@@ -31,7 +31,7 @@ router.put("/:id", (req, res, next) =>{
 });
 
 router.post("/", (req, res, next) =>{
-  Skill.find({}, function(err, data){
+  KnowledgeCatalog.find({}, function(err, data){
     if(err){
       return res.json({error:"code#", message: "you messed up"})
     }
@@ -40,7 +40,7 @@ router.post("/", (req, res, next) =>{
 });
 
 router.delete("/:id", (req, res, next) =>{
-  Skill.find({}, function(err, data){
+  KnowledgeCatalog.find({}, function(err, data){
     if(err){
       return res.json({error:"code#", message: "you messed up"})
     }

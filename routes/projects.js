@@ -1,30 +1,52 @@
 let express = require("express");
 let router = express.Router();
+const Project = require('../models/projects')
 
-//TODO build Mongoose shcema
-//TODO: this is a dummy profile for API creation
-const dummyProject = {
-  _id: "123",
-  name: "My Project",
-  link: "this.com",
-  about: "a project"
-};
 
-//TODO: return all dummy profiles
-router.get("/", (req, res, next) => res.json(dummyProject));
+router.get("/", (req, res, next) =>{
+  Project.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: return ONE dummy profile
-router.get("/:id", (req, res, next) => res.json(dummyProject));
+router.get("/:id", (req, res, next) =>{
+  Project.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: update dummy profile
-router.put("/:id", (req, res, next) => res.json(dummyProject));
+router.put("/:id", (req, res, next) =>{
+  Project.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: create dummy profile
-router.post("/", (req, res, next) => res.json(dummyProject));
+router.post("/", (req, res, next) =>{
+  Project.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: remove dummy profile
-router.delete("/:id", (req, res, next) => res.json(dummyProject));
+router.delete("/:id", (req, res, next) =>{
+  Project.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: need to build mongoose schema
 
 module.exports = router;

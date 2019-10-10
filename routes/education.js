@@ -1,30 +1,52 @@
 let express = require("express");
 let router = express.Router();
+const Education = require('../models/education')
 
-//TODO build Mongoose shcema
-//TODO: this is a dummy profile for API creation
-const dummyEducation = {
-  _id: "2468",
-  institution: "School",
-  degreeCertificate: "BS Comp-Sci",
-  year: "2018"
-};
 
-//TODO: return all dummy profiles
-router.get("/", (req, res, next) => res.json(dummyEducation));
+router.get("/", (req, res, next) =>{
+  Education.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: return ONE dummy profile
-router.get("/:id", (req, res, next) => res.json(dummyEducation));
+router.get("/:id", (req, res, next) =>{
+  Education.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: update dummy profile
-router.put("/:id", (req, res, next) => res.json(dummyEducation));
+router.put("/:id", (req, res, next) =>{
+  Education.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: create dummy profile
-router.post("/", (req, res, next) => res.json(dummyEducation));
+router.post("/", (req, res, next) =>{
+  Education.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: remove dummy profile
-router.delete("/:id", (req, res, next) => res.json(dummyEducation));
+router.delete("/:id", (req, res, next) =>{
+  Education.find({}, function(err, data){
+    if(err){
+      return res.json({error:"code#", message: "you messed up"})
+    }
+    res.json(data);
+  })
+});
 
-//TODO: need to build mongoose schema
 
 module.exports = router;

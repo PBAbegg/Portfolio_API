@@ -1,20 +1,34 @@
 require('dotenv').config();
-let createError = require('http-errors');
-let express = require('express');
-let path = require('path');
-let cookieParser = require('cookie-parser');
-let logger = require('morgan');
 
-//router middleware
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+let cookieParser = require('cookie-parser');
+const logger = require('morgan');
+
+//router middleware import
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-let profileRouter = require('./routes/profiles');
+//let profileRouter = require('./routes/profiles');
 let projectRouter = require('./routes/projects');
-let knowledgecatalogRouter = require('./routes/knowledgecatalog');
-let workexperienceRouter = require('./routes/workexperience');
+let knowledgecatalogRouter = require('./routes/knowledge_catalog');
+let workexperienceRouter = require('./routes/work_experience');
 let skillsRouter = require('./routes/skills');
 let educationRouter = require('./routes/education');
 let referenceRouter = require('./routes/references');
+
+const mongoose = require('mongoose');
+const config = require('./config/config');
+
+//database setup
+const connection_string = config.database.buildConnectionString();
+mongoose.connect(connection_string)
+  .then(() => {
+    console.log('Database connection successful.');
+  })
+  .catch((error) =>{
+    console.log('An error has occurred connection to the database.', error);
+  })
 
 let app = express();
 
@@ -33,11 +47,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routing middleware
 app.use('/', indexRouter);
-app.use('/profiles', profileRouter);
+//app.use('/profiles', profileRouter);
 app.use('/projects', projectRouter);
 app.use('/references', referenceRouter);
-app.use('/knowledgecatalog', knowledgecatalogRouter);
-app.use('/workexperience', workexperienceRouter);
+app.use('/knowledge_catalog', knowledgecatalogRouter);
+app.use('/work_experience', workexperienceRouter);
 app.use('/skills', skillsRouter);
 app.use('/education', educationRouter);
 app.use('/users', usersRouter);
