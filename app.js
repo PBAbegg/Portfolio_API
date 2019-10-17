@@ -9,7 +9,6 @@ const logger = require('morgan');
 //router middleware import
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
-//let profileRouter = require('./routes/profiles');
 let projectRouter = require('./routes/projects');
 let knowledgecatalogRouter = require('./routes/knowledge_catalog');
 let workexperienceRouter = require('./routes/work_experience');
@@ -47,7 +46,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routing middleware
 app.use('/', indexRouter);
-//app.use('/profiles', profileRouter);
 app.use('/projects', projectRouter);
 app.use('/references', referenceRouter);
 app.use('/knowledge_catalog', knowledgecatalogRouter);
