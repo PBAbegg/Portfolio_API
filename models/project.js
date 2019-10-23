@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 //const mongoose time stamp
 
-const user_schema = new Schema({
+const project_schema = new Schema({
     project_name: {
       type: String,
       required: true 
@@ -13,11 +13,11 @@ const user_schema = new Schema({
         type: String,
         required: true
     },
-    about: {
+    description: {
         type: String,
         required: true
     }
 })
 
-const Project = mongoose.model('project', user_schema);
+const Project = mongoose.model('project', project_schema);
 module.exports = Project;
