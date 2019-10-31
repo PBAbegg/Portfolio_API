@@ -6,7 +6,7 @@ const Project = require('../models/project')
 router.get("/", (req, res, next) =>{
   Project.find({}, function(err, data){
     if(err){
-      return res.json({error:"code#", message: "you messed up"})
+      return res.json({error:"code#", message: "An error has accord"})
     }
     res.json(data);
   })
@@ -15,7 +15,7 @@ router.get("/", (req, res, next) =>{
 router.get("/:id", (req, res, next) =>{
   Project.find({}, function(err, data){
     if(err){
-      return res.json({error:"code#", message: "you messed up"})
+      return res.json({error:"code#", message: "An error has accord"})
     }
     res.json(data);
   })
@@ -24,14 +24,14 @@ router.get("/:id", (req, res, next) =>{
 router.put("/:id", (req, res, next) =>{
   Project.find({}, function(err, data){
     if(err){
-      return res.json({error:"code#", message: "you messed up"})
+      return res.json({error:"code#", message: "An error has accord"})
     }
     res.json(data);
   })
 });
 
 router.post("/", (req, res, next) =>{
-  Project.create(req.body, function(err, data){
+  Project.createProject(req.body, function(err, data){
     if(err){
       return res.json({error:"code#", message: "An error has accord"})
     }
@@ -40,9 +40,10 @@ router.post("/", (req, res, next) =>{
 });
 
 router.delete("/:id", (req, res, next) =>{
-  Project.find({}, function(err, data){
-    if(err){
-      return res.json({error:"code#", message: "you messed up"})
+  Project.findOneAndDelete({_id: req.params.id},
+    function(err, data){
+      if(err){
+        return res.json({error:"code#", message: "An error has accord"})
     }
     res.json(data);
   })

@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 //const mongoose time stamp
 
 const user_schema = new Schema({
+    user_id: {
+        type: String,
+        required: true  
+      },
     email: {
       type: String,
       required: true  
@@ -25,5 +29,5 @@ const user_schema = new Schema({
     }
 })
 
-const Reference = mongoose.model('references', user_schema);
+const Reference = mongoose.model('reference', user_schema);
 module.exports = Reference;

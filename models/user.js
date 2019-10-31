@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 //const mongoose time stamp
 
 const user_schema = new Schema({
+    user_id: {
+      type: String,
+      required: true  
+    },
     email: {
       type: String,
       required: true  
@@ -23,6 +27,8 @@ const user_schema = new Schema({
     bio: {
         type: String
     }
+
+    //let focusedUser: '_id   ';
 })
 
 const User = mongoose.model('user', user_schema);

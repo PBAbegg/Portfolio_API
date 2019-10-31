@@ -1,6 +1,6 @@
 let express = require("express");
 let router = express.Router();
-const Skill = require('../models/skills')
+const Skill = require('../models/skill')
 
 
 router.get("/", (req, res, next) =>{

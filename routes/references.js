@@ -1,6 +1,6 @@
 let express = require("express");
 let router = express.Router();
-const Reference = require('../models/references')
+const Reference = require('../models/reference')
 
 
 router.get("/", (req, res, next) =>{
