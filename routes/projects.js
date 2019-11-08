@@ -31,7 +31,7 @@ router.put("/:id", (req, res, next) =>{
 });
 
 router.post("/", (req, res, next) =>{
-  Project.createProject(req.body, function(err, data){
+  Project.create(req.body, function(err, data){
     if(err){
       return res.json({error:"code#", message: "An error has accord"})
     }
